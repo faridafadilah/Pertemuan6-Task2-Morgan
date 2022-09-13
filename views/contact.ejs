@@ -1,0 +1,43 @@
+<!-- Content -->
+<div class="container">
+  <h1 class="text-center">Data Contact</h1>
+  <hr>
+    <!-- Flash Message  -->
+    <% if (msg.length !== 0) { %>
+      <div class="alert alert-success" role="alert">
+        <%= msg %> 
+      </div>
+    <% } %>
+
+    <a href="/contact/add" class="btn btn-primary mb-2">Tambah Data</a>
+    <table class="table table-striped">
+      <thead>
+        <tr style="background-color: rgb(95, 166, 207);">
+          <th scope="col">No</th>
+          <th scope="col">Nama</th>
+          <th scope="col">No Hp</th>
+          <th scope="col">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Cek Jika data Kosong -->
+        <% if (contacts.length <1) { %>
+          <tr>
+            <td colspan="4">
+              <div class="alert alert-danger" role="alert">Data Contact Empty</div>
+            </td>
+          </tr>
+        <% } %>
+        <% contacts.forEach((contact,i)=> { %>
+        <tr>
+          <th><%= i+1 %></th>
+          <td><%= contact.nama %></td>
+          <td><%= contact.nohp %></td>
+          <td>
+            <a href="/contact/<%= contact.nama %>" class="btn btn-success badge circle">Detail</a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+</div>

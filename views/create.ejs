@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Halaman Tambah Data</h1>
+    <!-- Cek Jika error tidak bernilai undefined -->
+    <% if (typeof errors !== 'undefined') { %>
+        <div class="alert alert-danger" role="alert">
+            <% errors.forEach(err => { %>
+                <li><%= err.msg %> </li>
+            <% }) %>
+        </div>
+    <% } %>
+    <!-- Form Tambah Data -->
+    <form action="/contact" method="post">
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
+        <input type="text" name="nama" class="form-control" id="exampleInputNama" aria-describedby="namaHelp">
+        </div>
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">No HP</label>
+            <input type="number" name="nohp" class="form-control" id="exampleInputNoHP1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
